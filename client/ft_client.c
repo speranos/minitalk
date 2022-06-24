@@ -1,9 +1,39 @@
-#include <sys/types.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "../minitalk.h"
 
-int	main()
+int	ft_checker(int ac)
 {
-	printf ("pid === %d\n", getpid());
+	if (ac != 3)
+	{
+		ft_putstr("arg...error !!!\n");
+		return (1);
+	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	int	i;
+	int	bit;
+	int	pid;
+
+	i = 0;
+	bit = 0;
+	if (ft_checker(ac) == 1)
+		return (0);
+	pid = ft_atoi(av[1]);
+	while (av[2][i])
+	{
+		while (bit <= 8)
+		{
+			if ((av[2][i] >> bit & 1) == 1)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			bit++;
+			sleep(5);
+		}
+		bit = 0;
+		i++;
+	}
 	return (0);
 }
