@@ -1,25 +1,25 @@
 
-ft_server = ft_server
-ft_client = ft_client
+server = server
+client = client
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-client = ./client/ft_client.c
-server = ./server/ft_server.c
-SRC = ft_putstr.c ft_atoi.c
+ft_client = ./ft_client/ft_client.c
+ft_server = ./ft_server/ft_server.c
+SRC = ft_atoi.c ft_putstr.c
 
-all : server client
-server : $(ft_server)
-$(ft_server) : $(server)
-	@$(CC) $(CFLAGS) $(server) $(SRC) -o $(ft_server)
+all : ft_server ft_client
+ft_server : $(server)
+$(server) : $(ft_server)
+	@$(CC) $(CFLAGS) $(ft_server) $(SRC) -o $(server)
 	@echo SERVER IS READY !!!
-client : $(ft_client)
-$(ft_client) : $(client)
-	@$(CC) $(CFLAGS) $(client) $(SRC) -o $(ft_client)
+ft_client : $(client)
+$(client) : $(ft_client)
+	@$(CC) $(CFLAGS) $(ft_client) $(SRC) -o $(client)
 	@echo CLIENT IS READY !!!
 clean :
-	@rm -rf $(ft_client) $(ft_server)
+	@rm -rf $(client) $(server)
 	@echo CLEAN !!!
 fclean :
-	@rm -rf $(ft_client) $(ft_server)
+	@rm -rf $(client) $(server)
 	@echo RESET...
 re : fclean all
