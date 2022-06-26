@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_rev.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoueldma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 07:31:55 by aoueldma          #+#    #+#             */
-/*   Updated: 2022/06/26 07:33:13 by aoueldma         ###   ########.fr       */
+/*   Created: 2022/04/22 02:28:26 by aoueldma          #+#    #+#             */
+/*   Updated: 2022/04/22 03:41:48 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <sys/types.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../ft_printf/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char *str);
-int	ft_putchar(char c);
-int	ft_atoi(const char *str);
+static int	ft_strlen(char *str)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (str[i] != 0)
+	{
+		i++;
+	}
+	return (i);
+}
+
+int	ft_rev(char *str)
+{
+	int		i;
+	int		r;
+	char	*ret;
+
+	r = 0;
+	ret = malloc(sizeof(char) * ft_strlen(str) + 1);
+	i = ft_strlen(str);
+	i--;
+	while (i >= 0)
+	{
+		ret[r++] = str[i--];
+	}
+	ret[r] = '\0';
+	ft_putstr(ret);
+	free(ret);
+	return (r);
+}

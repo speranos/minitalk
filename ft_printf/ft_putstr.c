@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoueldma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 07:31:55 by aoueldma          #+#    #+#             */
-/*   Updated: 2022/06/26 07:33:13 by aoueldma         ###   ########.fr       */
+/*   Created: 2022/04/22 02:14:36 by aoueldma          #+#    #+#             */
+/*   Updated: 2022/04/22 02:50:31 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <sys/types.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../ft_printf/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char *str);
-int	ft_putchar(char c);
-int	ft_atoi(const char *str);
+int	ft_putstr(char *str)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (!str)
+		i += ft_putstr("(null)");
+	else
+	{
+		while (str[i])
+		{
+			i += ft_putchar(str[i]);
+		}
+	}
+	return (i);
+}
