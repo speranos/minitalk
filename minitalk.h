@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <signal.h>
-# include "../ft_printf/ft_printf.h"
+# include "./ft_printf/ft_printf.h"
 
 int	ft_putstr(char *str);
 int	ft_putchar(char c);

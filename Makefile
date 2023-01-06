@@ -9,7 +9,7 @@ ft_client = ./ft_client/ft_client.c
 ft_server = ./ft_server/ft_server.c
 ft_client_bonus = ./ft_client_bonus/ft_client_bonus.c
 ft_server_bonus = ./ft_server_bonus/ft_server_bonus.c
-SRC = ft_atoi.c ../ft_printf/ft_printf.c ../ft_printf/ft_lowhexa.c ../ft_printf/ft_p.c ../ft_printf/ft_putnbr.c ../ft_printf/ft_putstr.c ../ft_printf/ft_rev.c ../ft_printf/ft_uint.c ../ft_printf/ft_uphexa.c
+SRC = ft_atoi.c ./ft_printf/ft_printf.c ./ft_printf/ft_lowhexa.c ./ft_printf/ft_p.c ./ft_printf/ft_putnbr.c ./ft_printf/ft_putstr.c ./ft_printf/ft_rev.c ./ft_printf/ft_uint.c ./ft_printf/ft_uphexa.c
 
 all : ft_server ft_client
 
